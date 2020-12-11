@@ -20,28 +20,28 @@ public class TreeTest {
 
     @Test
     public void sortEmployeesByAge() {
-        BinaryTree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getAge() <= emp2.getAge() ? -1 : 1);
+        Tree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getAge() <= emp2.getAge() ? -1 : 1);
         employees.stream().forEach(employeeBinaryTree::addNode);
         employeeBinaryTree.print(BinaryTree.TraversalType.IN_ORDER);
     }
 
     @Test
     public void findEmployeeByName() {
-        BinaryTree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getName().compareTo(emp2.getName()));
+        Tree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getName().compareTo(emp2.getName()));
         employees.stream().forEach(employeeBinaryTree::addNode);
         Assert.assertTrue(employeeBinaryTree.isPresent(new Employee("Gaurav", (byte) 41)));
     }
 
     @Test
     public void findEmployeeByNameButDifferentAge() {
-        BinaryTree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getName().compareTo(emp2.getName()));
+        Tree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getName().compareTo(emp2.getName()));
         employees.stream().forEach(employeeBinaryTree::addNode);
         Assert.assertTrue(employeeBinaryTree.isPresent(new Employee("Gaurav", (byte) 41)));
     }
 
     @Test
     public void findNonExistingEmployee() {
-        BinaryTree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getName().compareTo(emp2.getName()));
+        Tree<Employee> employeeBinaryTree = new BinaryTree<>((emp1, emp2) -> emp1.getName().compareTo(emp2.getName()));
         employees.stream().forEach(employeeBinaryTree::addNode);
         Assert.assertFalse(employeeBinaryTree.isPresent(new Employee("Gaurav1", (byte) 41)));
     }
