@@ -1,6 +1,6 @@
 package com.letsdoguru;
 
-import com.letsdoguru.tree.BinaryTree;
+import com.letsdoguru.tree.binary.BinaryTree;
 import com.letsdoguru.tree.Tree;
 
 import java.util.Random;

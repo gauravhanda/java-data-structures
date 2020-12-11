@@ -1,6 +1,7 @@
 package com.letsdoguru.tree;
 
 import com.letsdoguru.model.Employee;
+import com.letsdoguru.tree.binary.BinaryTree;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

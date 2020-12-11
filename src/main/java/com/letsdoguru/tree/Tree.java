@@ -1,5 +1,7 @@
 package com.letsdoguru.tree;
 
+import com.letsdoguru.tree.binary.BinaryTree;
+
 public interface Tree<T> {
     void addNode(T value);
 

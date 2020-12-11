@@ -1,4 +1,4 @@
-package com.letsdoguru.tree;
+package com.letsdoguru.tree.binary;
 
 public class BinaryTreeNode<T> {
     private T value;

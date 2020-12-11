@@ -1,4 +1,6 @@
-package com.letsdoguru.tree;
+package com.letsdoguru.tree.binary;
+
+import com.letsdoguru.tree.Tree;
 
 import java.util.Comparator;
 
