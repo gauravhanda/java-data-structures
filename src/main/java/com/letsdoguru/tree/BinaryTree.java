@@ -2,10 +2,16 @@ package com.letsdoguru.tree;
 
 import java.util.Comparator;
 
+/**
+ * Tree with traversal of order O(N) and search time of log(N)
+ *
+ * @param <T>
+ */
 public class BinaryTree<T> {
     private BinaryTreeNode<T> rootNode;
     private Comparator<T> comparator;
     private int traverseCount;
+    int treeSize = 0;
 
     public enum TraversalType {
         IN_ORDER,
@@ -22,6 +28,7 @@ public class BinaryTree<T> {
         if (rootNode == null) {
             rootNode = newNode;
         }
+        treeSize++;
     }
 
     private BinaryTreeNode<T> insertNode(BinaryTreeNode<T> node, T value) {
@@ -105,5 +112,39 @@ public class BinaryTree<T> {
             }
             System.out.println("-> " + node.getValue());
         }
+    }
+
+    /**
+     * Iterates to find if the value is present
+     *
+     * @param t
+     * @return
+     */
+    public boolean isPresent(T t) {
+        traverseCount = 0;
+        boolean status =  searchTree(rootNode, t);
+        System.out.println("Actual search count " + traverseCount + " Expected search iterations = log(n) "
+                + Math.log(treeSize)/Math.log(2));
+
+        return status;
+
+    }
+
+    private boolean searchTree(BinaryTreeNode<T> node, T value) {
+        traverseCount++;
+        boolean matchFound = false;
+
+        if (node != null) {
+            int comparison = comparator.compare(value, node.getValue());
+            matchFound = comparison == 0;
+
+            if (comparison == 1 && node.getRightTree() != null) {
+                matchFound = searchTree(node.getRightTree(), value);
+            } else if (comparison == -1 && node.getLeftTree() != null) {
+                matchFound = searchTree(node.getLeftTree(), value);
+            }
+        }
+
+        return matchFound;
     }
 }
